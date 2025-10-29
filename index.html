@@ -29,32 +29,43 @@
     <!-- Hero Section -->
     <section
       id="home"
-      class="relative h-screen flex items-center justify-center overflow-hidden"
+      class="relative h-screen flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+      style="background-image: url('assets/hero-bg.jpg')"
     >
-      <div id="vanta-bg" class="absolute inset-0"></div>
-      <div class="container mx-auto px-6 z-10 text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn">
-          Complete Marketing Solutions<br />All in One Place
-        </h1>
-        <p
-          class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto animate-fadeIn delay-100"
+      <!-- Animated background (desktop only) -->
+      <div id="vanta-bg" class="absolute inset-0 hidden md:block"></div>
+
+      <!-- Content -->
+      <div class="container mx-auto px-6 z-10 text-center relative">
+        <h1
+          class="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn leading-tight"
         >
-          From strategy to content, websites and SEO<br />We plan, create, and
-          grow your brand.
+          Complete Marketing Solutions,<br />
+          All in One Place.
+        </h1>
+
+        <p
+          class="text-lg md:text-2xl mb-12 max-w-3xl mx-auto animate-fadeIn delay-100"
+        >
+          From strategy to content, websites and SEO — we plan, create, and grow
+          your brand.
         </p>
+
         <div
           class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeIn delay-200"
         >
           <a
             href="#contact"
             class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition duration-300"
-            >Book a Free Consultation</a
           >
+            Book a Free Consultation
+          </a>
           <a
             href="#portfolio"
             class="border-2 border-white hover:bg-gray-900 text-white px-8 py-4 rounded-full font-medium transition duration-300"
-            >See Our Work</a
           >
+            See Our Work
+          </a>
         </div>
       </div>
     </section>
