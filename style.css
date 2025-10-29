@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+  #home {
+    background-size: 100% auto;
+    background-position: top center;
+  }
+}
