@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scaleMobile: 1.0,
       color: 0x0077ff,
       backgroundColor: 0x0,
+      backgroundAlpha: 0.0, // rende lo sfondo trasparente per mostrare l'immagine
       points: 12.0,
       maxDistance: 22.0,
       spacing: 18.0,
