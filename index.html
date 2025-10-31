@@ -3,412 +3,1803 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      MkM Digital — 360° Marketing Agency: Strategy, Social Media, Content, Web
-      & SEO
-    </title>
-    <meta
-      name="description"
-      content="Premium full-service marketing. Strategy, social media, content creation, web design and SEO for brands in Italy, Romania, and Switzerland."
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <title>MkM Digital — 360° Marketing Agency</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-  </head>
-  <body class="bg-black text-white font-sans">
-    <custom-navbar></custom-navbar>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <!-- Hero Section -->
-    <section
-      id="home"
-      class="relative flex items-end justify-center overflow-hidden bg-cover bg-center bg-no-repeat min-h-[100vh]"
-      style="
-        background-image: url('assets/hero-bg.png');
+      :root {
+        --primary-color: #3b82f6;
+        --primary-hover: #2563eb;
+        --bg-black: #000000;
+        --bg-gray-900: #111827;
+        --bg-gray-800: #1f2937;
+        --text-white: #ffffff;
+        --text-gray-300: #d1d5db;
+        --text-gray-400: #9ca3af;
+        --border-gray-700: #374151;
+        --border-gray-800: #1f2937;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-black);
+        color: var(--text-white);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Navbar */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      nav.scrolled {
+        background-color: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+
+      .logo {
+        height: 48px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--text-white);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: var(--text-white);
+        padding: 0.5rem 1.5rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-hover);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-white);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      .mobile-nav {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem 0;
+      }
+
+      .mobile-nav.active {
+        display: flex;
+      }
+
+      /* Hero Section */
+      #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tavola%20disegno%202-2%20copia-5crcUZN5hhr4FSHybwbZa6dLlEA7Kv.png");
         background-size: cover;
         background-position: center;
-      "
-    >
-      >
-      <!-- Animated background (desktop only) -->
-      <div id="vanta-bg" class="absolute inset-0 hidden md:block"></div>
+        position: relative;
+      }
 
-      <!-- Content -->
-      <div class="container mx-auto px-6 z-10 text-center relative">
-        <div
-          class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeIn delay-200"
-        >
-          <a
-            href="#contact"
-            class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition duration-300"
-          >
-            Book a Free Consultation
+      #home::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        padding-bottom: 4rem;
+      }
+
+      /* About Section */
+      #about {
+        padding: 6rem 0;
+        background: linear-gradient(to bottom, #000000, #111827, #000000);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-subtitle {
+        font-size: 1.25rem;
+        text-align: center;
+        color: var(--text-gray-300);
+        max-width: 56rem;
+        margin: 0 auto 4rem;
+        line-height: 1.8;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 80rem;
+        margin: 0 auto 4rem;
+      }
+
+      .team-card {
+        background-color: rgba(31, 41, 55, 0.5);
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border-gray-700);
+        transition: border-color 0.3s;
+      }
+
+      .team-card:hover {
+        border-color: var(--primary-color);
+      }
+
+      .team-card-header {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .team-icon {
+        background-color: rgba(59, 130, 246, 0.1);
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .team-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--primary-color);
+      }
+
+      .team-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .team-role {
+        color: var(--primary-color);
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .team-description {
+        color: var(--text-gray-300);
+        line-height: 1.6;
+      }
+
+      .highlight-box {
+        background: linear-gradient(
+          to right,
+          rgba(59, 130, 246, 0.1),
+          rgba(168, 85, 247, 0.1)
+        );
+        padding: 2rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        max-width: 56rem;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .highlight-text {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        color: #e5e7eb;
+      }
+
+      /* Services Section */
+      #services {
+        padding: 6rem 0;
+        background-color: var(--bg-black);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .service-card {
+        background-color: var(--bg-gray-900);
+        padding: 2rem;
+        border-radius: 0.75rem;
+        transition: background-color 0.3s;
+      }
+
+      .service-card:hover {
+        background-color: var(--bg-gray-800);
+      }
+
+      .service-icon {
+        width: 64px;
+        height: 64px;
+        background-color: var(--primary-color);
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-icon svg {
+        width: 32px;
+        height: 32px;
+        stroke: var(--text-white);
+      }
+
+      .service-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .service-description {
+        color: var(--text-gray-400);
+      }
+
+      /* How We Work Section */
+      #how-we-work {
+        padding: 5rem 0;
+        background-color: #09090b;
+      }
+
+      .steps-container {
+        max-width: 80rem;
+        margin: 0 auto;
+      }
+
+      .step-card {
+        background-color: var(--bg-gray-900);
+        border-radius: 1rem;
+        padding: 2rem;
+        border: 1px solid var(--border-gray-800);
+        margin-bottom: 2rem;
+        transition: border-color 0.3s;
+      }
+
+      .step-card:hover {
+        border-color: rgba(59, 130, 246, 0.5);
+      }
+
+      .step-header {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .step-number {
+        font-size: 3.75rem;
+        font-weight: bold;
+        color: rgba(59, 130, 246, 0.2);
+      }
+
+      .step-icon-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 0.75rem;
+        background-color: rgba(59, 130, 246, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .step-icon-box svg {
+        width: 32px;
+        height: 32px;
+        stroke: var(--primary-color);
+      }
+
+      .step-content {
+        flex: 1;
+      }
+
+      .step-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 0.75rem;
+      }
+
+      .step-description {
+        color: var(--text-gray-400);
+        font-size: 1.125rem;
+        line-height: 1.6;
+      }
+
+      /* Why Social Media Section */
+      #why-social-media {
+        padding: 5rem 0;
+        background: linear-gradient(
+          to bottom,
+          var(--bg-gray-900),
+          var(--bg-black)
+        );
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 5rem;
+      }
+
+      .stat-card {
+        background-color: rgba(31, 41, 55, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-gray-700);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .stat-card:hover {
+        border-color: var(--primary-color);
+        transform: scale(1.05);
+      }
+
+      .stat-icon-wrapper {
+        width: 64px;
+        height: 64px;
+        background-color: rgba(59, 130, 246, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+      }
+
+      .stat-icon-wrapper svg {
+        width: 32px;
+        height: 32px;
+        stroke: #60a5fa;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #60a5fa;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .stat-description {
+        font-size: 0.875rem;
+        color: var(--text-gray-400);
+      }
+
+      .images-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 5rem;
+      }
+
+      .image-box {
+        height: 256px;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+
+      .image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .platform-box {
+        background-color: rgba(31, 41, 55, 0.3);
+        border: 1px solid var(--border-gray-700);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 5rem;
+      }
+
+      .platform-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .platform-text {
+        color: var(--text-gray-300);
+        text-align: center;
+        max-width: 48rem;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .comparison-card {
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+
+      .comparison-card.professional {
+        background: linear-gradient(
+          to bottom right,
+          rgba(30, 58, 138, 0.2),
+          rgba(30, 64, 175, 0.1)
+        );
+        border: 1px solid rgba(59, 130, 246, 0.3);
+      }
+
+      .comparison-card.diy {
+        background: linear-gradient(
+          to bottom right,
+          rgba(31, 41, 55, 0.5),
+          rgba(17, 24, 39, 0.3)
+        );
+        border: 1px solid #4b5563;
+      }
+
+      .comparison-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .comparison-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .comparison-icon.professional {
+        background-color: var(--primary-color);
+      }
+
+      .comparison-icon.diy {
+        background-color: #4b5563;
+      }
+
+      .comparison-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--text-white);
+      }
+
+      .comparison-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .comparison-list {
+        list-style: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .comparison-list li {
+        display: flex;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .comparison-list svg {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        margin-top: 0.125rem;
+      }
+
+      .comparison-result {
+        padding: 1rem;
+        border-radius: 0.5rem;
+      }
+
+      .comparison-result.professional {
+        background-color: rgba(59, 130, 246, 0.1);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+      }
+
+      .comparison-result.diy {
+        background-color: rgba(55, 65, 81, 0.3);
+        border: 1px solid #4b5563;
+      }
+
+      .comparison-result p {
+        font-size: 0.875rem;
+        font-weight: 600;
+      }
+
+      /* Portfolio Section */
+      #portfolio {
+        padding: 6rem 0;
+        background: linear-gradient(
+          to bottom,
+          var(--bg-black),
+          var(--bg-gray-900),
+          var(--bg-black)
+        );
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 64rem;
+        margin: 0 auto;
+      }
+
+      .testimonial-card {
+        background-color: var(--bg-gray-900);
+        padding: 2rem;
+        border-radius: 0.75rem;
+      }
+
+      .testimonial-quote {
+        font-size: 1.25rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .testimonial-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: var(--bg-gray-800);
+        overflow: hidden;
+      }
+
+      .testimonial-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .testimonial-name {
+        font-weight: bold;
+      }
+
+      .testimonial-role {
+        color: var(--text-gray-400);
+      }
+
+      /* Contact Section */
+      #contact {
+        padding: 6rem 0;
+        background-color: var(--bg-black);
+      }
+
+      .contact-form {
+        max-width: 56rem;
+        margin: 0 auto;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        background-color: var(--bg-gray-900);
+        border: 1px solid var(--border-gray-800);
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        color: var(--text-white);
+        font-family: inherit;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+      }
+
+      .social-inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .contact-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 4rem;
+      }
+
+      .contact-link {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-white);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .contact-link:hover {
+        color: #60a5fa;
+      }
+
+      .contact-link svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--bg-gray-900);
+        padding: 3rem 0;
+        border-top: 1px solid var(--border-gray-800);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-logo {
+        height: 56px;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-info {
+        color: var(--text-gray-400);
+        line-height: 1.6;
+        font-size: 0.875rem;
+      }
+
+      .footer-info p {
+        margin-bottom: 0.25rem;
+      }
+
+      .footer-title {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        font-size: 1.125rem;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: var(--text-gray-400);
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--text-white);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--border-gray-800);
+        padding-top: 2rem;
+        text-align: center;
+        color: var(--text-gray-400);
+        font-size: 0.875rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .step-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .step-number {
+          font-size: 2.5rem;
+        }
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Utility classes */
+      .text-center {
+        text-align: center;
+      }
+
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+
+      .mb-12 {
+        margin-bottom: 3rem;
+      }
+
+      .mt-16 {
+        margin-top: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="container">
+        <div class="nav-container">
+          <a href="#home">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tavola%20disegno%202LOGO%20READY-25PJy1OCpJz9FYiFsO0VjmTx2Cw2dh.png"
+              alt="MkM Digital"
+              class="logo"
+              style="filter: brightness(0) invert(1)"
+            />
           </a>
-          <a
-            href="#portfolio"
-            class="border-2 border-white hover:bg-gray-900 text-white px-8 py-4 rounded-full font-medium transition duration-300"
-          >
-            See Our Work
-          </a>
+
+          <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact" class="btn-primary">Contact</a>
+          </div>
+
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span id="menuIcon">☰</span>
+          </button>
         </div>
+
+        <div class="mobile-nav" id="mobileNav">
+          <a href="#home" onclick="closeMobileMenu()">Home</a>
+          <a href="#about" onclick="closeMobileMenu()">About</a>
+          <a href="#services" onclick="closeMobileMenu()">Services</a>
+          <a href="#contact" class="btn-primary" onclick="closeMobileMenu()"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home">
+      <div class="container hero-content">
+        <a
+          href="#contact"
+          class="btn-primary"
+          style="display: inline-block; padding: 1rem 2rem; font-size: 1.125rem"
+        >
+          Book a Free Consultation
+        </a>
       </div>
     </section>
 
     <!-- About Section -->
-    <section
-      id="about"
-      class="py-24 bg-gradient-to-b from-black via-gray-900 to-black"
-    >
-      <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-12 text-center">Who We Are</h2>
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <p class="text-xl mb-8 leading-relaxed">
-              MkM Digital is a full-service agency delivering strategy, social
-              media, content production, websites, and SEO. Professional,
-              creative, and internationally experienced across Italy and Romania
-            </p>
-            <ul class="space-y-4">
-              <li class="flex items-start">
-                <i
-                  data-feather="check-circle"
-                  class="text-blue-500 mr-3 mt-1"
-                ></i>
-                <span>Tailored strategies for your business goals</span>
-              </li>
-              <li class="flex items-start">
-                <i
-                  data-feather="check-circle"
-                  class="text-blue-500 mr-3 mt-1"
-                ></i>
-                <span>Data-driven, measurable results</span>
-              </li>
-              <li class="flex items-start">
-                <i
-                  data-feather="check-circle"
-                  class="text-blue-500 mr-3 mt-1"
-                ></i>
-                <span
-                  >Fast, reliable delivery with transparent communication</span
-                >
-              </li>
-            </ul>
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-subtitle">
+          MkM Digital is a full-service marketing agency combining creativity,
+          strategy, and technology to help brands grow with purpose.
+        </p>
+
+        <div style="margin-bottom: 4rem">
+          <h3
+            style="
+              font-size: 1.5rem;
+              font-weight: 600;
+              margin-bottom: 2.5rem;
+              text-align: center;
+            "
+          >
+            Our team brings together four core experts:
+          </h3>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="team-name">Mike</h4>
+                  <p class="team-role">Founder & Visual Designer</p>
+                </div>
+              </div>
+              <p class="team-description">
+                Shaping the identity of brands through impactful design, post
+                layouts, and creative direction.
+              </p>
+            </div>
+
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="team-name">Desirée</h4>
+                  <p class="team-role">Copywriter & Social Media Manager</p>
+                </div>
+              </div>
+              <p class="team-description">
+                Crafting the voice of each brand and managing communication with
+                precision.
+              </p>
+            </div>
+
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="team-name">Azdin</h4>
+                  <p class="team-role">Photographer & Videomaker</p>
+                </div>
+              </div>
+              <p class="team-description">
+                Producing high-quality visuals and professional edits that tell
+                authentic stories.
+              </p>
+            </div>
+
+            <div class="team-card">
+              <div class="team-card-header">
+                <div class="team-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="team-name">Valery</h4>
+                  <p class="team-role">Strategist</p>
+                </div>
+              </div>
+              <p class="team-description">
+                Transforming insights and analytics into clear, effective
+                marketing strategies.
+              </p>
+            </div>
           </div>
-          <div class="bg-gray-800 p-8 rounded-xl border-l-4 border-blue-500">
-            <p class="font-serif text-2xl italic mb-4">
-              "Marketing is no longer about the stuff you make, but about the
-              stories you tell."
-            </p>
-            <p class="text-gray-400">— Seth Godin</p>
-          </div>
+        </div>
+
+        <div class="highlight-box">
+          <p class="highlight-text">
+            We build bold, cohesive brands with a focus on creativity,
+            measurable results, and genuine collaboration.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-24 bg-black">
-      <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-16 text-center">Our Services</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Service Card 1 -->
-          <div
-            class="bg-gray-900 p-8 rounded-xl hover:bg-gray-800 transition duration-300"
-          >
-            <div
-              class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <i data-feather="target" class="w-8 h-8 text-white"></i>
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Strategy & Consulting</h3>
-            <p class="text-gray-400">
+            <h3 class="service-title">Strategy & Consulting</h3>
+            <p class="service-description">
               Market analysis, brand positioning, and growth plans tailored to
               your business objectives.
             </p>
           </div>
 
-          <!-- Service Card 2 -->
-          <div
-            class="bg-gray-900 p-8 rounded-xl hover:bg-gray-800 transition duration-300"
-          >
-            <div
-              class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <i data-feather="users" class="w-8 h-8 text-white"></i>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Social Media Management</h3>
-            <p class="text-gray-400">
+            <h3 class="service-title">Social Media Management</h3>
+            <p class="service-description">
               Content calendars, post design, copywriting, and community
               engagement to grow your audience.
             </p>
           </div>
 
-          <!-- Service Card 3 -->
-          <div
-            class="bg-gray-900 p-8 rounded-xl hover:bg-gray-800 transition duration-300"
-          >
-            <div
-              class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <i data-feather="camera" class="w-8 h-8 text-white"></i>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Photo & Video Production</h3>
-            <p class="text-gray-400">
+            <h3 class="service-title">Photo & Video Production</h3>
+            <p class="service-description">
               Professional shoots, editing, and visual storytelling that
               captures your brand essence.
             </p>
           </div>
 
-          <!-- Service Card 4 -->
-          <div
-            class="bg-gray-900 p-8 rounded-xl hover:bg-gray-800 transition duration-300"
-          >
-            <div
-              class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <i data-feather="globe" class="w-8 h-8 text-white"></i>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Web Design & Development</h3>
-            <p class="text-gray-400">
+            <h3 class="service-title">Web Design & Development</h3>
+            <p class="service-description">
               Conversion-focused websites with intuitive UX/UI design that
               drives results.
             </p>
           </div>
 
-          <!-- Service Card 5 -->
-          <div
-            class="bg-gray-900 p-8 rounded-xl hover:bg-gray-800 transition duration-300"
-          >
-            <div
-              class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <i data-feather="trending-up" class="w-8 h-8 text-white"></i>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
+              </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">SEO Optimization</h3>
-            <p class="text-gray-400">
+            <h3 class="service-title">SEO Optimization</h3>
+            <p class="service-description">
               Content optimization, backlinks strategy, and technical SEO to
               improve your rankings.
             </p>
           </div>
 
-          <!-- Service Card 6 -->
-          <div
-            class="bg-gray-900 p-8 rounded-xl hover:bg-gray-800 transition duration-300"
-          >
-            <div
-              class="w-16 h-16 bg-blue-500 rounded-lg flex items-center justify-center mb-6"
-            >
-              <i data-feather="package" class="w-8 h-8 text-white"></i>
+          <div class="service-card">
+            <div class="service-icon">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                />
+              </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Complete Packages</h3>
-            <p class="text-gray-400">
+            <h3 class="service-title">Complete Packages</h3>
+            <p class="service-description">
               Custom bundles combining multiple services for comprehensive brand
               growth.
             </p>
           </div>
         </div>
 
-        <div class="text-center mt-16">
+        <div class="text-center">
           <a
             href="#contact"
-            class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition duration-300 inline-block"
-            >Request a Custom Package</a
+            class="btn-primary"
+            style="
+              display: inline-block;
+              padding: 1rem 2rem;
+              font-size: 1.125rem;
+            "
           >
+            Request a Custom Package
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section
-      id="portfolio"
-      class="py-24 bg-gradient-to-b from-black via-gray-900 to-black"
-    >
-      <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-16 text-center">Selected Projects</h2>
+    <!-- How We Work Section -->
+    <section id="how-we-work">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="section-title">How We Work</h2>
+          <p
+            style="
+              font-size: 1.125rem;
+              color: var(--text-gray-400);
+              max-width: 42rem;
+              margin: 0 auto;
+            "
+          >
+            Our proven 5-step process ensures your brand gets the attention and
+            results it deserves
+          </p>
+        </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Portfolio Item 1 -->
-          <div class="group relative overflow-hidden rounded-xl h-64">
-            <img
-              src="http://static.photos/technology/640x360/1"
-              alt="Tech client project"
-              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6"
-            >
-              <h3 class="text-xl font-bold mb-2">Tech Startup</h3>
-              <p class="text-gray-300 mb-4">
-                Brand strategy & social media growth
-              </p>
-              <p class="text-blue-400">+300% engagement in 3 months</p>
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">01</div>
+              <div class="step-icon-box">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Preliminary Free Video Call</h3>
+                <p class="step-description">
+                  You explain your project, your values, objectives, and vision.
+                  We listen and understand your needs.
+                </p>
+              </div>
             </div>
           </div>
 
-          <!-- Portfolio Item 2 -->
-          <div class="group relative overflow-hidden rounded-xl h-64">
-            <img
-              src="http://static.photos/food/640x360/2"
-              alt="Restaurant project"
-              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6"
-            >
-              <h3 class="text-xl font-bold mb-2">Gourmet Restaurant</h3>
-              <p class="text-gray-300 mb-4">Website redesign & SEO</p>
-              <p class="text-blue-400">+150% online reservations</p>
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">02</div>
+              <div class="step-icon-box">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Custom Package & Quote</h3>
+                <p class="step-description">
+                  We create a comprehensive package and detailed quote tailored
+                  specifically to your company.
+                </p>
+              </div>
             </div>
           </div>
 
-          <!-- Portfolio Item 3 -->
-          <div class="group relative overflow-hidden rounded-xl h-64">
-            <img
-              src="http://static.photos/fashion/640x360/3"
-              alt="Fashion brand project"
-              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6"
-            >
-              <h3 class="text-xl font-bold mb-2">Fashion Brand</h3>
-              <p class="text-gray-300 mb-4">
-                Content production & influencer collabs
-              </p>
-              <p class="text-blue-400">+80K new followers</p>
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">03</div>
+              <div class="step-icon-box">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Market Research & Preparation</h3>
+                <p class="step-description">
+                  We study the market, your competitors, your company, and
+                  products. We prepare all materials: photos, videos, graphics,
+                  and more.
+                </p>
+              </div>
             </div>
           </div>
 
-          <!-- Portfolio Item 4 -->
-          <div class="group relative overflow-hidden rounded-xl h-64">
-            <img
-              src="http://static.photos/health/640x360/4"
-              alt="Wellness project"
-              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6"
-            >
-              <h3 class="text-xl font-bold mb-2">Wellness Center</h3>
-              <p class="text-gray-300 mb-4">Complete rebranding</p>
-              <p class="text-blue-400">3x more leads</p>
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">04</div>
+              <div class="step-icon-box">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Launch & Publish</h3>
+                <p class="step-description">
+                  We start publishing consistently and continuously. No breaks,
+                  no delays—just steady momentum.
+                </p>
+              </div>
             </div>
           </div>
 
-          <!-- Portfolio Item 5 -->
-          <div class="group relative overflow-hidden rounded-xl h-64">
-            <img
-              src="http://static.photos/education/640x360/5"
-              alt="E-learning project"
-              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6"
-            >
-              <h3 class="text-xl font-bold mb-2">E-Learning Platform</h3>
-              <p class="text-gray-300 mb-4">Digital marketing strategy</p>
-              <p class="text-blue-400">+40% conversion rate</p>
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-number">05</div>
+              <div class="step-icon-box">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                  />
+                </svg>
+              </div>
+              <div class="step-content">
+                <h3 class="step-title">Constant Optimization</h3>
+                <p class="step-description">
+                  We continuously analyze performance, refine strategies, and
+                  optimize results to ensure ongoing growth.
+                </p>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Portfolio Item 6 -->
-          <div class="group relative overflow-hidden rounded-xl h-64">
+    <!-- Why Social Media Section -->
+    <section id="why-social-media">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="section-title">Why Social Media Marketing in 2025?</h2>
+          <p
+            style="
+              font-size: 1.25rem;
+              color: var(--text-gray-300);
+              max-width: 56rem;
+              margin: 0 auto;
+              line-height: 1.6;
+            "
+          >
+            In 2025, social media marketing has become essential. Social
+            platforms are the main hub of public attention and the key space for
+            visibility, engagement, and business growth.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <div class="stat-number">5.31B</div>
+            <div class="stat-label">Active Social Media Users</div>
+            <div class="stat-description">65% of global population</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                />
+              </svg>
+            </div>
+            <div class="stat-number">5-8x</div>
+            <div class="stat-label">Higher ROI</div>
+            <div class="stat-description">With data-driven strategies</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <div class="stat-number">25%</div>
+            <div class="stat-label">Digital Ad Spending</div>
+            <div class="stat-description">Goes to social media</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                />
+              </svg>
+            </div>
+            <div class="stat-number">1 Day</div>
+            <div class="stat-label">Per Week</div>
+            <div class="stat-description">Average time spent on social</div>
+          </div>
+        </div>
+
+        <div class="images-grid">
+          <div class="image-box">
             <img
-              src="http://static.photos/realestate/640x360/6"
-              alt="Real estate project"
-              class="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/social-media-analytics-dashboard-with-graphs-and-m-ySzkR7qvZUB87yQxtsyCyBrxNjdb0W.jpg"
+              alt="Social Media Analytics"
             />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6"
-            >
-              <h3 class="text-xl font-bold mb-2">Luxury Real Estate</h3>
-              <p class="text-gray-300 mb-4">Video marketing campaign</p>
-              <p class="text-blue-400">2.5M video views</p>
+          </div>
+          <div class="image-box">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/professional-marketing-team-collaborating-on-socia-mZDU0L4z1ByZHIqAvk67QmwcpTj4If.jpg"
+              alt="Marketing Team"
+            />
+          </div>
+          <div class="image-box">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/attachments/gen-images/public/smartphone-showing-multiple-social-media-apps-inst-9L9QKnbIhEIzi743jyuHl4klFYrarx.jpg"
+              alt="Social Media Apps"
+            />
+          </div>
+        </div>
+
+        <div class="platform-box">
+          <h3 class="platform-title">
+            Multiple Platforms, Unique Opportunities
+          </h3>
+          <p class="platform-text">
+            Platforms such as <strong style="color: #60a5fa">Facebook</strong>,
+            <strong style="color: #60a5fa">Instagram</strong>,
+            <strong style="color: #60a5fa">TikTok</strong>, and
+            <strong style="color: #60a5fa">LinkedIn</strong> each offer distinct
+            audiences, languages, and content types that can be leveraged for
+            different marketing goals. Understanding these nuances is key to
+            maximizing your reach and engagement.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 3rem">
+          <h3
+            style="
+              font-size: 1.875rem;
+              font-weight: bold;
+              margin-bottom: 1rem;
+              text-align: center;
+            "
+          >
+            DIY vs. Professional Management
+          </h3>
+          <p
+            style="
+              color: var(--text-gray-300);
+              text-align: center;
+              max-width: 48rem;
+              margin: 0 auto 3rem;
+              line-height: 1.6;
+            "
+          >
+            Managing social media marketing independently versus relying on
+            industry professionals leads to very different outcomes.
+          </p>
+
+          <div class="comparison-grid">
+            <div class="comparison-card professional">
+              <div class="comparison-header">
+                <div class="comparison-icon professional">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h4 class="comparison-title">Working with Professionals</h4>
+              </div>
+              <ul class="comparison-list">
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >SEO & advertising expertise</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >Professional design & copywriting</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >Advanced data analysis & reporting</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >Continuous algorithm updates</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >Campaign optimization</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >Maximum ROI with reduced waste</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >Strategic adaptation over time</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#60a5fa" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-300)"
+                    >Ongoing support & feedback</span
+                  >
+                </li>
+              </ul>
+              <div class="comparison-result professional">
+                <p style="color: #93c5fd">
+                  Result: Maximize ROI, reduce waste, and build data-driven
+                  strategies with continuous support.
+                </p>
+              </div>
+            </div>
+
+            <div class="comparison-card diy">
+              <div class="comparison-header">
+                <div class="comparison-icon diy">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <h4 class="comparison-title">DIY Management</h4>
+              </div>
+              <ul class="comparison-list">
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >Limited expertise across disciplines</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >Inadequate professional tools</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >Lack of advanced analytics</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >No continuous trend monitoring</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >Time-consuming learning curve</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >Inconsistent results</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >No strategic oversight</span
+                  >
+                </li>
+                <li>
+                  <svg fill="none" stroke="#6b7280" viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span style="color: var(--text-gray-400)"
+                    >Limited scalability</span
+                  >
+                </li>
+              </ul>
+              <div class="comparison-result diy">
+                <p style="color: var(--text-gray-400)">
+                  Result: Limited expertise, inadequate tools, and lack of
+                  advanced analysis often lead to suboptimal results.
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Testimonials -->
-        <div class="mt-24 max-w-4xl mx-auto">
-          <h3 class="text-3xl font-bold mb-12 text-center">
+        <div class="text-center mt-16">
+          <p
+            style="
+              font-size: 1.25rem;
+              color: var(--text-gray-300);
+              margin-bottom: 1.5rem;
+            "
+          >
+            Choosing an agency simplifies administrative tasks and ensures
+            ongoing support with continuous feedback and strategic adaptation
+            over time.
+          </p>
+          <a
+            href="#contact"
+            class="btn-primary"
+            style="
+              display: inline-block;
+              padding: 1rem 2rem;
+              font-size: 1.125rem;
+            "
+          >
+            Start Your Professional Journey
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio/Testimonials Section -->
+    <section id="portfolio">
+      <div class="container">
+        <div style="max-width: 64rem; margin: 0 auto">
+          <h3
+            style="
+              font-size: 1.875rem;
+              font-weight: bold;
+              margin-bottom: 3rem;
+              text-align: center;
+            "
+          >
             What Our Clients Say
           </h3>
 
-          <div class="testimonial-carousel">
-            <!-- Testimonial 1 -->
-            <div class="testimonial bg-gray-900 p-8 rounded-xl">
-              <p class="text-xl italic mb-6">
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <p class="testimonial-quote">
                 "MkM Digital transformed our social media presence completely.
                 Their strategic approach and creative content helped us triple
                 our engagement rates in just a few months."
               </p>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden"
-                >
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
                   <img
-                    src="http://static.photos/people/200x200/1"
-                    alt="Client"
-                    class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
+                    alt="Sarah Johnson"
                   />
                 </div>
                 <div>
-                  <h4 class="font-bold">Sarah Johnson</h4>
-                  <p class="text-gray-400">CEO, TechSolutions</p>
+                  <div class="testimonial-name">Sarah Johnson</div>
+                  <div class="testimonial-role">CEO, TechSolutions</div>
                 </div>
               </div>
             </div>
 
-            <!-- Testimonial 2 -->
-            <div class="testimonial bg-gray-900 p-8 rounded-xl">
-              <p class="text-xl italic mb-6">
+            <div class="testimonial-card">
+              <p class="testimonial-quote">
                 "The website MkM designed for us increased our conversion rate
                 by 60%. Their team understood our brand perfectly and delivered
                 beyond expectations."
               </p>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden"
-                >
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
                   <img
-                    src="http://static.photos/people/200x200/2"
-                    alt="Client"
-                    class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+                    alt="Michael Rossi"
                   />
                 </div>
                 <div>
-                  <h4 class="font-bold">Michael Rossi</h4>
-                  <p class="text-gray-400">Founder, ItalianEats</p>
+                  <div class="testimonial-name">Michael Rossi</div>
+                  <div class="testimonial-role">Founder, ItalianEats</div>
                 </div>
               </div>
             </div>
 
-            <!-- Testimonial 3 -->
-            <div class="testimonial bg-gray-900 p-8 rounded-xl">
-              <p class="text-xl italic mb-6">
+            <div class="testimonial-card">
+              <p class="testimonial-quote">
                 "Working with MkM was a game-changer for our marketing strategy.
                 Their data-driven approach helped us allocate our budget more
                 efficiently and double our ROI."
               </p>
-              <div class="flex items-center">
-                <div
-                  class="w-12 h-12 rounded-full bg-gray-700 mr-4 overflow-hidden"
-                >
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
                   <img
-                    src="http://static.photos/people/200x200/3"
-                    alt="Client"
-                    class="w-full h-full object-cover"
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop"
+                    alt="Emma Laurent"
                   />
                 </div>
                 <div>
-                  <h4 class="font-bold">Emma Laurent</h4>
-                  <p class="text-gray-400">Marketing Director, SwissLux</p>
+                  <div class="testimonial-name">Emma Laurent</div>
+                  <div class="testimonial-role">
+                    Marketing Director, SwissLux
+                  </div>
                 </div>
               </div>
             </div>
@@ -418,242 +1809,215 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-black">
-      <div class="container mx-auto px-6 max-w-4xl">
-        <h2 class="text-4xl font-bold mb-12 text-center">
-          Let's Build Your Growth Plan
-        </h2>
-        <p class="text-xl text-center mb-16 max-w-2xl mx-auto">
-          Tell us about your goals. We'll reply within 24 hours.
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Let's Build Your Growth Plan</h2>
+        <p
+          style="
+            font-size: 1.25rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Every brand is unique, and so are our strategies. Tell us about your
+          goals and availability for a free call, and we'll craft a plan
+          tailored to your needs. We'll reply within 24 hours.
         </p>
 
-        <!-- <div id="zf_div_5IYqnHpstn3RrYb24Z3qQzblazZrUgl_w95iVbPnoEM"></div> -->
-
-        <!-- <form class="space-y-6">
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block mb-2">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+        <form class="contact-form" id="contactForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" required />
             </div>
-            <div>
-              <label for="email" class="block mb-2">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" required />
             </div>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label for="company" class="block mb-2">Company</label>
-              <input
-                type="text"
-                id="company"
-                class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" id="company" required />
             </div>
-            <div>
-              <label for="budget" class="block mb-2">Budget</label>
-              <select
-                id="budget"
-                class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              >
-                <option value="" disabled selected>Select an option</option>
-                <option value="1-5k">€1,000 - €5,000</option>
-                <option value="5-10k">€5,000 - €10,000</option>
-                <option value="10-20k">€10,000 - €20,000</option>
-                <option value="20k+">€20,000+</option>
+            <div class="form-group">
+              <label for="budget">Monthly Budget</label>
+              <select id="budget" required>
+                <option value="">Select an option</option>
+                <option value="400-700">€400 - €700</option>
+                <option value="700-1200">€700 - €1,200</option>
+                <option value="1200-2000">€1,200 - €2,000</option>
+                <option value="2000+">€2,000+</option>
               </select>
             </div>
           </div>
 
-          <div>
-            <label for="message" class="block mb-2">Your Message</label>
-            <textarea
-              id="message"
-              rows="5"
-              class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
+          <div class="form-group">
+            <label>Insert social media links (if available)</label>
+            <div class="social-inputs">
+              <input
+                type="url"
+                id="social1"
+                placeholder="https://instagram.com/yourprofile"
+              />
+              <input
+                type="url"
+                id="social2"
+                placeholder="https://facebook.com/yourpage"
+              />
+              <input
+                type="url"
+                id="social3"
+                placeholder="https://linkedin.com/company/yourcompany"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" rows="5" required></textarea>
           </div>
 
           <button
             type="submit"
-            class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition duration-300 w-full md:w-auto"
+            class="btn-primary"
+            style="padding: 1rem 2rem; font-size: 1.125rem"
           >
             Send Request
           </button>
-        </form> -->
+        </form>
 
-        <div
-          class="mt-16 flex flex-col sm:flex-row justify-center items-center gap-6"
-        >
-          <a
-            href="https://wa.me/1234567890"
-            class="flex items-center gap-2 hover:text-blue-400 transition duration-300"
-          >
-            <i data-feather="message-circle" class="w-5 h-5"></i>
+        <div class="contact-links">
+          <a href="https://wa.me/1234567890" class="contact-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+              />
+            </svg>
             Chat on WhatsApp
           </a>
-          <a
-            href="mailto:info@mkmdigital.com"
-            class="flex items-center gap-2 hover:text-blue-400 transition duration-300"
-          >
-            <i data-feather="mail" class="w-5 h-5"></i>
-            info@mkmdigital.com
+          <a href="mailto:info@mkmdigitalagency.com" class="contact-link">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
+            </svg>
+            info@mkmdigitalagency.com
           </a>
         </div>
       </div>
     </section>
 
-    <custom-footer></custom-footer>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Tavola%20disegno%202LOGO%20READY-25PJy1OCpJz9FYiFsO0VjmTx2Cw2dh.png"
+              alt="MkM Digital"
+              class="footer-logo"
+              style="filter: brightness(0) invert(1)"
+            />
+            <div class="footer-info">
+              <p style="font-weight: 600; color: var(--text-white)">
+                MkM Digital S.R.L.
+              </p>
+              <p>CIF: 51255386</p>
+              <p>J2025008896004</p>
+              <p>Str. Dimitrie Cantemir 86 A</p>
+              <p>Oradea, Romania</p>
+            </div>
+          </div>
 
-    <script type="text/javascript">
-      (function () {
-        try {
-          var f = document.createElement("iframe");
+          <div>
+            <h4 class="footer-title">Services</h4>
+            <ul class="footer-links">
+              <li><a href="#services">Strategy & Consulting</a></li>
+              <li><a href="#services">Social Media Management</a></li>
+              <li><a href="#services">Photo & Video Production</a></li>
+              <li><a href="#services">Web Design & SEO</a></li>
+            </ul>
+          </div>
 
-          var ifrmSrc =
-            "https://forms.zohopublic.eu/officemkmdigit1/form/ContactUs1/formperma/5IYqnHpstn3RrYb24Z3qQzblazZrUgl_w95iVbPnoEM?zf_rszfm=1";
+          <div>
+            <h4 class="footer-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#how-we-work">How We Work</a></li>
+              <li><a href="#portfolio">Testimonials</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
 
-          try {
-            if (
-              typeof ZFAdvLead != "undefined" &&
-              typeof zfutm_zfAdvLead != "undefined"
-            ) {
-              for (
-                var prmIdx = 0;
-                prmIdx < ZFAdvLead.utmPNameArr.length;
-                prmIdx++
-              ) {
-                var utmPm = ZFAdvLead.utmPNameArr[prmIdx];
-                utmPm =
-                  ZFAdvLead.isSameDomian &&
-                  ZFAdvLead.utmcustPNameArr.indexOf(utmPm) == -1
-                    ? "zf_" + utmPm
-                    : utmPm;
-                var utmVal = zfutm_zfAdvLead.zfautm_gC_enc(
-                  ZFAdvLead.utmPNameArr[prmIdx]
-                );
-                if (typeof utmVal !== "undefined") {
-                  if (utmVal != "") {
-                    if (ifrmSrc.indexOf("?") > 0) {
-                      ifrmSrc = ifrmSrc + "&" + utmPm + "=" + utmVal;
-                    } else {
-                      ifrmSrc = ifrmSrc + "?" + utmPm + "=" + utmVal;
-                    }
-                  }
-                }
-              }
-            }
-            if (
-              typeof ZFLead !== "undefined" &&
-              typeof zfutm_zfLead !== "undefined"
-            ) {
-              for (
-                var prmIdx = 0;
-                prmIdx < ZFLead.utmPNameArr.length;
-                prmIdx++
-              ) {
-                var utmPm = ZFLead.utmPNameArr[prmIdx];
-                var utmVal = zfutm_zfLead.zfutm_gC_enc(
-                  ZFLead.utmPNameArr[prmIdx]
-                );
-                if (typeof utmVal !== "undefined") {
-                  if (utmVal != "") {
-                    if (ifrmSrc.indexOf("?") > 0) {
-                      ifrmSrc = ifrmSrc + "&" + utmPm + "=" + utmVal; //No I18N
-                    } else {
-                      ifrmSrc = ifrmSrc + "?" + utmPm + "=" + utmVal; //No I18N
-                    }
-                  }
-                }
-              }
-            }
-          } catch (e) {}
+        <div class="footer-bottom">
+          <p>&copy; 2025 MkM Digital Agency. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
-          f.src = ifrmSrc;
-          f.style.border = "none";
-          f.style.height = "930px";
-          f.style.width = "90%";
-          f.style.transition = "all 0.5s ease";
-          f.setAttribute("aria-label", "Contact Us");
-
-          var d = document.getElementById(
-            "zf_div_5IYqnHpstn3RrYb24Z3qQzblazZrUgl_w95iVbPnoEM"
-          );
-          d.appendChild(f);
-          window.addEventListener(
-            "message",
-            function () {
-              var evntData = event.data;
-              if (evntData && evntData.constructor == String) {
-                var zf_ifrm_data = evntData.split("|");
-                if (zf_ifrm_data.length == 2 || zf_ifrm_data.length == 3) {
-                  var zf_perma = zf_ifrm_data[0];
-                  var zf_ifrm_ht_nw = parseInt(zf_ifrm_data[1], 10) + 15 + "px";
-                  var iframe = document
-                    .getElementById(
-                      "zf_div_5IYqnHpstn3RrYb24Z3qQzblazZrUgl_w95iVbPnoEM"
-                    )
-                    .getElementsByTagName("iframe")[0];
-                  if (
-                    iframe.src.indexOf("formperma") > 0 &&
-                    iframe.src.indexOf(zf_perma) > 0
-                  ) {
-                    var prevIframeHeight = iframe.style.height;
-                    var zf_tout = false;
-                    if (zf_ifrm_data.length == 3) {
-                      iframe.scrollIntoView();
-                      zf_tout = true;
-                    }
-
-                    if (prevIframeHeight != zf_ifrm_ht_nw) {
-                      if (zf_tout) {
-                        setTimeout(function () {
-                          iframe.style.height = zf_ifrm_ht_nw;
-                        }, 500);
-                      } else {
-                        iframe.style.height = zf_ifrm_ht_nw;
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            false
-          );
-        } catch (e) {}
-      })();
-    </script>
-    <script src="script.js"></script>
     <script>
-      feather.replace();
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
 
-      // Vanta.js background animation
-      document.addEventListener("DOMContentLoaded", function () {
-        VANTA.NET({
-          el: "#vanta-bg",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: 0x0077ff,
-          backgroundColor: 0x0,
-          points: 12.0,
-          maxDistance: 22.0,
-          spacing: 18.0,
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      const menuIcon = document.getElementById("menuIcon");
+
+      mobileMenuBtn.addEventListener("click", function () {
+        mobileNav.classList.toggle("active");
+        menuIcon.textContent = mobileNav.classList.contains("active")
+          ? "✕"
+          : "☰";
+      });
+
+      function closeMobileMenu() {
+        mobileNav.classList.remove("active");
+        menuIcon.textContent = "☰";
+      }
+
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert("Thank you for your message! We will reply within 24 hours.");
+          this.reset();
+        });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
         });
       });
     </script>
-    <script src="script.js"></script>
   </body>
 </html>
